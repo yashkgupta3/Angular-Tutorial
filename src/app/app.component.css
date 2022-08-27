@@ -1,0 +1,7 @@
+.sampleButton{
+    color:red
+}
+.headingStyle{
+    color:pink
+}
+/* above style is also defined in global css but local is prefereed over global..try commenting and see the color change */

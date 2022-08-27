@@ -1,0 +1,24 @@
+<h1>reactive-form works!</h1>
+<form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+  <input 
+    type="text"
+    placeholder="Enter user name"
+    name="user"
+    formControlName="user"
+  />
+  <br>
+  <span style="color: red;" *ngIf="userX && userX.invalid && userX.touched" >This field is not valid</span>
+  <br />
+  <input
+    type="password"
+    placeholder="Enter password"
+    name="password"
+    formControlName="password"
+  />
+  <br />
+  <span style="color: red;" *ngIf="passwordVariable && passwordVariable.invalid && passwordVariable.touched" >This password is not valid</span>
+  <br />
+  <!-- the below button is automatically associated with the form  -->
+  <button [disabled]="loginForm.invalid">Login</button>
+  <br />
+</form>

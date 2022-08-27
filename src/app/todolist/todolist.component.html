@@ -1,0 +1,24 @@
+<input type="text" placeholder="Enter task to be added" #InputTask />
+<br /><br />
+<button (click)="addTask(InputTask.value)">Add Task</button>
+<ul *ngFor ="let t of taskListOfTODOList">
+  <li >
+    <mat-checkbox
+      [indeterminate]="isIndeterminate"
+      [checked]="ischecked"
+      (change)="onChkChange(t.counterId)"
+    >
+    <ng-template [ngIf]="t.status==='complete'">
+        <div style="text-decoration: line-through">{{t.task}}</div>
+    </ng-template>
+    <ng-template [ngIf]="t.status==='incomplete'">
+        <div style="text-decoration: none">{{t.task}}</div>
+    </ng-template>
+    
+    </mat-checkbox>
+  </li>
+</ul>
+
+
+
+

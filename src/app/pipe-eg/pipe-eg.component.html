@@ -1,0 +1,23 @@
+<p>{{totala}}</p>
+<p>{{totala | uppercase}}</p>
+<p>{{totala | lowercase}}</p>
+<h1>{{today}}</h1>
+<h1>{{today | date}}</h1>
+<h1>{{today | date: 'fullDate'}}</h1>
+<!-- in above we have paased the parameter to date -->
+<!-- The point to note we can even make our own customize pipe -->
+
+<!-- Advanced pipe starts here  -->
+<p>{{totala |slice: 3}}</p>
+<p>{{totala |slice: 3:8}}</p>
+<!-- two pipe together in the below example -->
+<p>{{totala |slice: 3:8 | uppercase}}</p>
+<h2>{{user}}</h2>
+<h2>{{user | json}}</h2>
+<h2>{{user | json | uppercase}}</h2>
+<h2>{{2000.3002 | number : '2.2-3'}}</h2>
+<h2>{{20 | currency:'USD'}}</h2>
+<h2>{{20 | currency:'INR'}}</h2>
+
+<!-- making custome pipe starts here  -->
+<h1>{{50 | usdInr : 72.523}}</h1>

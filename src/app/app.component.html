@@ -1,0 +1,328 @@
+<h1>Hello angular{{title}}</h1>
+<h1>{{getValue()}}</h1>
+<h1>2 + 2</h1>
+<h1>{{getValue2()}}</h1>
+<h1>{{3+6}}</h1>
+<h1>{{4==getValue2()}}</h1>
+<!-- <h1>{{title ="blog"}}</h1> -->
+<!-- <h1>{{typeof title}}</h1> -->
+<!-- <h1>{{integerValue++}}</h1> -->
+<!-- new keyword also doesnt work here -->
+<h1>{{integerValue+1121}}</h1>
+<h1 class={{title}}>kas be</h1>
+<h1 class="{{title}}">kyu be lode</h1>
+<!-- above is dynamic class of the tag -->
+
+<app-user-list></app-user-list>
+<app-user-list></app-user-list>
+<app-user-list-inline></app-user-list-inline>
+<app-student-list></app-student-list>
+<app-country-list></app-country-list>
+<button (click)="getName()">this is the button name</button>
+<button (click)="getSirName('Yash')">this is the sir name button</button>
+<app-login></app-login>
+<button (click)="getData()">lauda lelo</button>
+<br/>
+<br/>
+<!-- different type of events below -->
+<input type="text" (keyup)="getloda('box')" placeholder="event keyup just for reference" />
+<!-- above key up is called when the key is release from keyboard that is key is back up after pressed down -->
+<br/><br/>
+<input type="text" #box (keyup)="getloda(box.value)" placeholder="event keyup just for reference" />
+<br/><br/>
+<input type="text" #box2 (keydown)="getloda(box2.value)" placeholder="event keydown just for reference" />
+<br/><br/>
+<input type="text" #box3 (blur)="getloda(box3.value)" placeholder="event blur just for reference" />
+<br/><br/>
+<input type="text" #box4 (input)="getloda(box4.value)" placeholder="event input just for reference" />
+<br/><br/>
+<h1 (mouseover)="getloda('chutiya hai kya be over mat kar')">maa ka bhosda mat karna..matlab over mat karna</h1>
+<br/><br/>
+<h1 (mouseleave)="getloda('chutiya hai kya be hover mat kar matlab mouse leave mat kar ')">maa ka bhosda mat karna..matlab hover mat karna</h1>
+<input type="text" #Idhube (keyup)="getBhalue(Idhube.value)" placeholder="Enter Name" name="name of input element"/>
+<p>Innitial value of string is : {{displayVal}}</p>
+<br/><br/>
+<input type="text" #Idhube1 placeholder="Enter Name and then click button" name="name of input element"/><br/>
+<button (click)="getBhalue(Idhube1.value)">abe humko click karo</button>
+<!-- <button (click)="getBhalue(Idhube1.name)">abe humko click karoge toh name defined for input element of corresponding id print hoga</button> -->
+<!-- <button (click)="getBhalue(Idhube1.placeholder)">abe humko click karoge toh place holder value defined for input element of corresponding id print hoga</button> -->
+<p>Innitial value of string is : {{displayVal}}</p>
+
+<!-- counter -->
+<br/><br/><br/><br/>
+<button (click)="counter('--')" >--</button>
+<p>Count value is : {{count}}</p>
+<button (click)="counter('++')">++</button>
+
+<!-- basic rule of styling -->
+<br/><br/><br/><br/>
+<h1 class="headingStyle">{{Styleing}}</h1>
+<app-register></app-register>
+
+<!-- below is the example of internal styling -->
+<br/><br/><br/><br/>
+<style>
+    .headingStyle{
+        color:blue;
+    }
+</style>
+<!-- from above we can conclude the order of preference would be (inline css)>>(internal css)>>(component css)>>global -->
+
+
+<!-- property binding and interpolation with difference -->
+<!-- below is the syntax to do it via interpolation and below is working wrong-->
+<input type="text" name={{input_name}} disabled={{disable}} value="loda"/>
+<br/><br/>
+<!-- below is the syntax to do it via property binding -->
+<input type="text" [name]=input_name [disabled]=disable value="loda"/>
+ 
+<!-- if else in angular -->
+<h1 *ngIf="showKiValue else elseBlockId"> If condition executed</h1>
+<ng-template #elseBlockId>
+    <h1>Else condition executed</h1>
+</ng-template>
+<!-- other apporach to do above -->
+<br/><br/>
+<h1 *ngIf="showKiValue then ifBlockIdKoExecuteKaro else elseBlockIdKoExecuteKaro"></h1>
+<ng-template #ifBlockIdKoExecuteKaro><h1>If Condition executed in other approach</h1></ng-template>
+<ng-template #elseBlockIdKoExecuteKaro><h1>else Condition executed in other approach</h1></ng-template>
+<!-- if boolean value is not passed from ts file then use the following syntax -->
+<h1 *ngIf="showStringKiValue=='loda' then ifBlockIdKoExecuteKarotriple else elseBlockIdKoExecuteKarotriple"></h1>
+<ng-template #ifBlockIdKoExecuteKarotriple><h1>If Condition executed in triple other approach</h1></ng-template>
+<ng-template #elseBlockIdKoExecuteKarotriple><h1>else Condition executed in triple other approach</h1></ng-template>
+
+<!-- multiple if else from below -->
+<ng-template [ngIf]="colorValue==='red'">
+    <h1 style="color: red">Red Color</h1>
+</ng-template>
+<ng-template [ngIf]="colorValue==='blue'">
+    <h1 style="color: blue">Blue Color</h1>
+</ng-template>
+<ng-template [ngIf]="colorValue==='green'">
+    <h1 style="color: green">Green Color</h1>
+</ng-template>
+
+<!-- switch case from here -->
+<div [ngSwitch]="colorValueForSwitchCase">
+    <h1 *ngSwitchCase ="'red'"style="color:red">red Color from switch case</h1>
+    <h1 *ngSwitchCase ="'green'"style="color:green">green Color from switch case</h1>
+    <h1 *ngSwitchCase ="'blue'"style="color:blue">blue Color from switch case</h1>
+    <h1 *ngSwitchCase ="'orange'"style="color:orange">orange Color from switch case</h1>
+    <h1 *ngSwitchCase ="'golden'"style="color:golden">golden Color from switch case</h1>
+    <h1 *ngSwitchDefault>Unknown Color from switch case</h1>
+</div>
+
+<!-- Loop in angular -->
+<h3 *ngFor="let item of users">Name is : {{item}}</h3>
+<h3 *ngFor="let i of userDetails">email is : {{i.email}} and phone is {{i.phone}} </h3>
+
+<!-- nested Loop in angular -->
+<!-- ul is used when we want to show the data in sequence  ul-unordered list, ol-ordered list-->
+ <ul *ngFor ="let i of userDetails2">
+    <li>{{i.name}}</li>
+    <li>{{i.phone}}</li>
+ </ul>
+
+<br/><br/>
+
+ <ol *ngFor ="let i of userDetails2">
+    <li>{{i.name}}</li>
+    <li>{{i.socialAccounts}}</li>
+ </ol>
+
+ <br/><br/>
+
+ <ul *ngFor ="let i of userDetails2">
+    <li>{{i.name}}</li>
+    <ul *ngFor ="let j of i.socialAccounts">
+        <li>{{j}}</li>
+    </ul>
+ </ul>
+
+ <!-- dynamic bing starts from here -->
+ <h1 [style.color]="dynamicColor" [style.font-size]="dynamicFont" [style.background-color]="dynamicBgColor" >Hi This text changes dynamically with the input from below</h1>
+ <!-- <input type="text" placeholder="enter font size"  #dynamicFontSizeId> -->
+
+<select name="dropdown" #dynamicFontSizeId>
+    <option selected="selected" value="medium">medium</option>
+    <option value="xx-small">xx-small</option>
+    <option value="large">large</option>
+    <option value="x-large">x-large</option>
+    <option value="xx-large">xx-large</option>
+    </select>
+ <input type="text" placeholder="enter font color" #dynamicFontColorId>
+ <input type="text" placeholder="enter font background color" #dynamicFontBackgroundColorId>
+ <br/>
+ <button (click)="updateDynamicParam(dynamicFontSizeId.value,dynamicFontColorId.value,dynamicFontBackgroundColorId.value)">Change above text</button>
+
+<!-- headers start from here -->
+<app-header></app-header>
+
+<!-- form starts headers -->
+<!-- registering the below form id to ng form -->
+<form #basicForm="ngForm" (ngSubmit)="getFormData(basicForm.value)">
+    <input type="text"  ngModel name="user" placeholder="enter user name" />
+    <br/><br/>
+    <input type="text" ngModel name="email" placeholder="enter user email" />
+    <br/><br/>
+    <input type="text" ngModel name="pass" placeholder="enter user password" />
+    <br/><br/>
+    <button>Register</button>
+    <br/><br/>
+</form>
+<ul>
+    <li>{{dataForm.user}}</li>
+    <li>{{dataForm.email}}</li>
+    <li>{{dataForm.pass}}</li>
+</ul>
+
+<!-- toggle element start here -->
+<button (click)="toggleHeading()">Toggle</button>
+<h1 *ngIf="showHeading" >
+    Heading Tag
+</h1>
+
+<!-- boot strap starts from here -->
+<!-- we can visit here for more angular components - https://ng-bootstrap.github.io/#/components/accordion/examples -->
+<p>
+    <ngb-alert [dismissible]="false">
+      <strong>Warning!</strong> Better check yourself, you're not looking too good.
+    </ngb-alert>
+  </p>
+<!-- boot strap Accordion -->
+  <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ngb-panel title="Simple">
+      <ng-template ngbPanelContent>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+        aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+        labore sustainable VHS.
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel>
+      <ng-template ngbPanelTitle>
+        <span>&#9733; <b>Fancy</b> title &#9733;</span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+        aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+        labore sustainable VHS.
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel title="Disabled" [disabled]="true">
+      <ng-template ngbPanelContent>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+        aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+        labore sustainable VHS.
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+
+  <!-- material ui starts form here -->
+  <mat-slider min="1" max="100" step="1" value="50"></mat-slider>
+
+  <div class="example-button-row">
+    <button mat-raised-button>Basic</button>
+    <button mat-raised-button color="primary">Primary</button>
+    <button mat-raised-button color="accent">Accent</button>
+    <button mat-raised-button color="warn">Warn</button>
+    <button mat-raised-button disabled>Disabled</button>
+    <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+
+  <p>
+    Button with a badge on the left
+    <button mat-raised-button color="primary"
+        matBadge="8" matBadgePosition="before" matBadgeColor="accent">
+      Action
+    </button>
+  </p>
+
+  <span matBadge="4" matBadgeOverlap="false">Text with a badge</span>
+  <br/><br/>
+  <h1>Hi This is TODO list by Yash Gupta !!!!!</h1>
+<app-todolist></app-todolist>
+<br/><br/>
+<!-- Pass data child to component startss here-->
+<app-child [childBindingVariable]="parentData"></app-child>
+<button (click)="UpdateChildValue()">Update child variable value</button>
+
+<!-- #27 reusable component starts here -->
+<!-- The point to note here is that the cohlid component has just done the styleing of the data passed from app.component.ts -->
+<br/><br/>
+<ul *ngFor="let i of userDetails">
+  <app-user-details [userDetailsChildVariable]="i"></app-user-details>
+</ul>
+
+<!-- Send data child to parent -->
+<!-- using child2 component -->
+<br/><br/>
+<!-- The point ot note that when we needed to paas the variable we used [] bracket now since we wanted to pass the function we would be using this bracket () -->
+<h1>{{dataVariableInparent}}</h1>
+<app-child2 (thisFunctionWouldBeCatchingTheFunctionPassedFromParentAndWouldBeDefinedInTheChild)="thisFunctionWouldbePassedFromParentToChildAndIsDefinedInParent($event)"></app-child2>
+
+<br/><br/>
+<!-- Two way binding starts here -->
+<!-- below style bracketing is called banana in the box -->
+<!-- <here the property would be dynamically changed, we could also have done by the variable method as done earlier, but this one is very simpler with keyup and key down etc-->
+<!-- [ngModel]="overRideRate" is to bind overRideRate to the input.value -->
+<input type="text" [(ngModel)]="namePropertyVariable" #did>
+<h3>{{namePropertyVariable}}</h3>
+
+<!-- Template reference variable starts here -->
+   
+<input type="text" #boxing name="loda" placeholder="maa chuda"> 
+<button (click)="getValueTemplateRefenceVariable(boxing)">Call Function</button>
+
+<!--  //pipes -->
+<!-- // use of pipe - they are only used in html file  -->
+<!-- //changing the data format -  eg date,string,(capital small) , curency,locale etc --> -->
+<app-pipe-eg></app-pipe-eg>
+<!-- forms starts here  -->
+<!-- template driven form starts here  -->
+<!-- please note ngModela anf name are manadatory fields -->
+<form #loginForm="ngForm" ng (ngSubmit)="userLogin(loginForm.value)">
+<input type="text" ngModel placeholder="Enter name" name="name">
+<br/><br/>
+<input type="password" ngModel placeholder="Enter password" name="password">
+<br/><br/>
+<button>login</button>
+</form>
+<button (click)="userLogin(loginForm.value)">outside login</button>
+<br/>
+<button (click)="userLogin2(loginForm.control)">outside login with control</button>
+<!-- adding boostrap to the form  https://www.youtube.com/watch?v=CflqAqLLBEE&list=PL8p2I9GklV45JZerGMvw5JVxPSxCg8VPv&index=39 just adding the class-->
+<br/><br/>
+<form #loginForm3="ngForm" class="form-control" ng (ngSubmit)="userLogin(loginForm.value)">
+  <input type="text" ngModel placeholder="Enter name" name="name">
+  <br/><br/>
+  <input type="password" class="form-control" ngModel placeholder="Enter password" name="password">
+  <br/><br/>
+  <button class="btn btn-primary">login</button>
+  </form>
+
+<!-- template driven forms validations starts here  -->
+<br/><br/>
+<app-form-tutorial-component></app-form-tutorial-component>
+<br/><br/>
+<app-reactive-form></app-reactive-form>
+<!-- directive starts here  -->
+<h1 appRedEl>Hi This is directive example</h1>
+
+
+  
+
+
+
+
+
+
+

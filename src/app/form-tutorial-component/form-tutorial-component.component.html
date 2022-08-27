@@ -1,0 +1,38 @@
+<div class="col-sm-6">
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)"> 
+      <div class="form-group">
+        <label for="Email Address">Email address</label>
+        <input required type="email" class="form-control" #email="ngModel" email ngModel name="useremail" placeholder="Enter email">
+        {{email.touched}}
+        <span *ngIf="email.invalid && email.touched" class="error">Email field is invalid</span>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input required type="password" #password="ngModel" minlength="3" maxlength="10" ngModel class="form-control" name="password" placeholder="Password">
+        <span *ngIf="password.invalid && password.touched" class="error">password field is invalid</span>
+      </div>
+      <div class="form-group">
+        <label for="Address">Address</label>
+        <input pattern ="[a-zA-Z ]*" type="text" #address="ngModel" ngModel class="form-control" name="address" placeholder="Address">
+        <span *ngIf="address.invalid && address.touched" class="error">address field is invalid</span>
+      </div>
+      <button [disabled]="userForm.invalid" mat-button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+
+    <!-- prefilled form starts here  -->
+<br/><br/>
+<div class="col-sm-6">
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)"> 
+      <div class="form-group">
+        <label for="Email Address">Email address</label>
+        <input  type="email" class="form-control" #email="ngModel" ngModel name="useremail" [ngModel]="userData.email" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input  type="password" #password="ngModel"  ngModel class="form-control" name="password" [ngModel]="userData.password" placeholder="Password">
+      </div>
+      <button  mat-button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+
