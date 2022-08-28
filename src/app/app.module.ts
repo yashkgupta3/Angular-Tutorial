@@ -26,6 +26,9 @@ import { FormTutorialComponentComponent } from './form-tutorial-component/form-t
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RedElDirective } from './directiveDirectory/red-el.directive';
+import { ServiceExampleComponentOneComponent } from './service-example-component-one/service-example-component-one.component';
+import { ServiceExampleComponentTwoComponent } from './service-example-component-two/service-example-component-two.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,10 @@ import { RedElDirective } from './directiveDirectory/red-el.directive';
     UsdInrPipe,
     FormTutorialComponentComponent,
     ReactiveFormComponent,
-    RedElDirective
+    RedElDirective,
+    ServiceExampleComponentOneComponent,
+    ServiceExampleComponentTwoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

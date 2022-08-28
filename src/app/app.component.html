@@ -75,7 +75,7 @@
 <br/><br/>
 <!-- below is the syntax to do it via property binding -->
 <input type="text" [name]=input_name [disabled]=disable value="loda"/>
- 
+
 <!-- if else in angular -->
 <h1 *ngIf="showKiValue else elseBlockId"> If condition executed</h1>
 <ng-template #elseBlockId>
@@ -108,7 +108,7 @@
     <h1 *ngSwitchCase ="'green'"style="color:green">green Color from switch case</h1>
     <h1 *ngSwitchCase ="'blue'"style="color:blue">blue Color from switch case</h1>
     <h1 *ngSwitchCase ="'orange'"style="color:orange">orange Color from switch case</h1>
-    <h1 *ngSwitchCase ="'golden'"style="color:golden">golden Color from switch case</h1>
+    <h1 *ngSwitchCase ="'golden'"style="color:greenyellow">golden Color from switch case</h1>
     <h1 *ngSwitchDefault>Unknown Color from switch case</h1>
 </div>
 
@@ -278,8 +278,8 @@
 <h3>{{namePropertyVariable}}</h3>
 
 <!-- Template reference variable starts here -->
-   
-<input type="text" #boxing name="loda" placeholder="maa chuda"> 
+
+<input type="text" #boxing name="loda" placeholder="maa chuda">
 <button (click)="getValueTemplateRefenceVariable(boxing)">Call Function</button>
 
 <!--  //pipes -->
@@ -317,8 +317,13 @@
 <!-- directive starts here  -->
 <h1 appRedEl>Hi This is directive example</h1>
 
-
-  
+<!--servies starts here-->
+<app-service-example-component-one></app-service-example-component-one>
+<br>
+<app-service-example-component-two></app-service-example-component-two>
+<br>
+<!--<sample footer desined using chrome inspect -->
+<app-footer></app-footer>
 
 
 
